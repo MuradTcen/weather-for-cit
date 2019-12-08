@@ -1,13 +1,13 @@
-package api.model.wheather.openwheather;
+package api.model.weather.openweather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public @Data
-class OpenWheatherMapWind {
+class OpenWheatherMapMain {
 
-    private int speed;
+    private int temp;
 
-    private int deg;
+    private int humidity;
 }

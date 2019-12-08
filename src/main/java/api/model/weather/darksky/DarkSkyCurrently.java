@@ -1,4 +1,4 @@
-package api.model.wheather.darksky;
+package api.model.weather.darksky;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package api.model.wheather.yandexwheather;
+package api.model.weather.yandexweather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

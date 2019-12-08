@@ -1,8 +1,8 @@
-package api.service.wheather;
+package api.service.weather;
 
 import api.Application;
-import api.model.wheather.ResponseWheather;
-import api.model.wheather.darksky.DarkSkyValue;
+import api.model.weather.ResponseWeather;
+import api.model.weather.darksky.DarkSkyValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -11,7 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-public class DarkSkyWheather implements Wheather {
+public class DarkSkyWeather implements Weather {
 
     //    @Value(value = "${darkSkyWheatherApi.url}")
     private String url = "https://api.darksky.net/forecast";
@@ -19,10 +19,12 @@ public class DarkSkyWheather implements Wheather {
     //    @Value(value = "${darkSkyWheatherApi.key}")
     private String key = "73eed20d99b93e2d18a4e224bfe937a4";
 
+    public static final String NAME = "dark-sky";
+
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     @Override
-    public ResponseWheather getWeather(double latitude, double longitude) {
+    public ResponseWeather getWeather(double latitude, double longitude) {
         HttpHeaders headers = new HttpHeaders();
 
         HttpEntity entity = new HttpEntity(headers);
@@ -35,7 +37,7 @@ public class DarkSkyWheather implements Wheather {
 
         log.info(weather.toString());
 
-        return new ResponseWheather(
+        return new ResponseWeather(
                 weather.getBody().getCurrently().getTemperature(),
                 weather.getBody().getCurrently().getHumidity(),
                 weather.getBody().getCurrently().getWindSpeed(),

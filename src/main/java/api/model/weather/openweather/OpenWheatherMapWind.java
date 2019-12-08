@@ -1,12 +1,13 @@
-package api.model.wheather.yandexwheather;
+package api.model.weather.openweather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public @Data
-class WheatherYandexValue {
-    private String now_dt;
+class OpenWheatherMapWind {
 
-    private WheatherYandexFact fact;
+    private int speed;
+
+    private int deg;
 }
